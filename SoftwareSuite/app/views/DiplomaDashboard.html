@@ -1,0 +1,82 @@
+﻿<style>
+.bck_btn{
+margin-top:20px!important;
+}
+    .refresh_captcha {
+        margin-top: 23px;
+        border: 3px solid #ddd;
+        border-style: groove;
+    }
+</style>
+<div ng-controller="DiplomaDashboardController">
+    <ui-view>
+        <section class="content">
+                <div class="container">
+                        <div class="col-md-12">
+                           <a href="#/Dashboard" class="backA"> <button class="btn bck_btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  Back</button></a>
+                        </div>
+                    </div>
+            <div class="container DashboardContent">
+                <!-- Small boxes (Stat box) -->
+                <div class="row widgets-container">
+                    <div class="col-lg-3 col-xs-6" ng-repeat="item in SubmodulesList track by $index">
+
+
+                        <a href="#" class="grow" ui-sref=".{{item.Module}}" >
+                            <!--ng-click="OpenExamModule(item)">  ng-disabled="item.Module=='DiplomaFeePayment'||item.Module=='StudentOnlineRequest'||item.Module=='StudentRequestForm'||item.Module=='GenuinenessCheckForm'"-->
+                            <div class="{{item.ModuleImageClass}}">
+                                <div class="inner">
+                                    <div class="icon" ng-show="item.Module=='Hallticket'">
+                                        <img src="../../contents/img/HallTicket.png" width="60px" height="auto" />
+                                    </div>
+                                    <div class="icon" ng-show="item.Module=='DiplomaFeePayment'">
+                                        <img src="../../contents/img/rupee.png" width="60px" height="auto" />
+                                    </div>                                   
+                                    <div class="icon" ng-show="item.Module=='StudentResult'">
+                                        <img src="../../contents/img/results.png" width="60px" height="auto" />
+                                    </div>
+                                    <div class="icon" ng-show="item.Module=='StudentConsolidatedResult'">
+                                        <img src="../../contents/img/Consolidated.png" width="60px" height="auto" />
+                                    </div>
+                                    <div class="icon" ng-show="item.Module=='StudentAttendance'">
+                                        <img src="../../contents/img/attendance.png" width="60px" height="auto" />
+                                    </div>
+                                    <!-- <div class="icon" ng-show="item.Module=='StudentFeedBack'">
+                                        <img src="../../contents/img/FeedBack.png" width="60px" height="auto" />
+                                    </div> -->
+                                    <div class="icon" ng-show="item.Module=='StudentOnlineRequest'">
+                                        <img src="../../contents/img/certificate.png" width="60px" height="auto" />
+                                    </div>
+                                    <div class="icon" ng-show="item.Module=='StudentRequestForm'">
+                                        <img src="../../contents/img/certificteser.png" width="60px" height="auto" />
+                                    </div>
+                                    <div class="icon" ng-show="item.Module=='GenuinenessCheckForm'">
+                                        <img src="../../contents/img/genuineness.png" width="60px" height="auto" />
+                                    </div>
+                                    <div  href="{{item.href}}" class="icon" ng-show="item.Module=='2Years'">
+                                        <a target="_blank" href="https://sbtet.telangana.gov.in/index.html#!/index/TwoYearsCertificateRequest">
+                                             <img src="../../contents/img/certificate.png" width="60px" height="auto" /></a>
+                                     </div> 
+                                  
+                                     <div  href="{{item.href}}" class="icon" ng-show="item.Module=='StudentFeedBack'">
+                                        <a target="_blank" href="https://sbtet.telangana.gov.in/index.html#!/index/StudentFeedback">
+                                             <img src="../../contents/img/certificate.png" width="60px" height="auto" /></a>
+                                     </div> 
+                                    <h3 ng-hide="item.Module=='https://sbtet.telangana.gov.in/index.html#!/index/StudentFeedback'">{{item.SysModName}}</h3>
+                                    <h3 ng-show="item.Module=='https://sbtet.telangana.gov.in/index.html#!/index/StudentFeedback'">
+                                        <a target="_blank" style="color: #fff!important;text-decoration: none;" href="https://sbtet.telangana.gov.in/index.html#!/index/StudentFeedback">Student Feedback
+                                        </a></h3>
+                                    <div class="icon1">
+                                        <img src="../../contents/img/transprent.png" width="150" height="auto"  />
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </ui-view>
+</div>
+

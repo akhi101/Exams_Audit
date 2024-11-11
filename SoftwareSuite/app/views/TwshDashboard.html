@@ -1,0 +1,59 @@
+<style>
+    .bck_btn{
+    margin-top:20px!important;
+    }
+    a{
+        text-decoration: none!important;
+    }
+    </style>
+   
+    <div ng-controller="TwshDashBoardController">
+        <ui-view>
+            <section class="content">
+                    <div class="container">
+                            <div class="col-md-12">
+                               <a href="#/Dashboard" class="backA"> <button class="btn bck_btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  Back</button></a>
+                            </div>
+                        </div>
+                <div class="container dashboardContent">
+                   
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row widgets-container">
+                        <div class="col-lg-3 col-xs-6" ng-repeat="item in SubmodulesList">
+    
+    
+                            <a href="{{item.href}}" class="grow" ui-sref=".{{item.Module}}" >
+                                <!--ng-click="OpenExamModule(item)">-->
+                                <div class="{{item.ModuleImageClass}}">
+                                    <div class="inner">
+                                        <div class="icon" ng-show="item.Module=='ShorthandResult'">
+                                            <img src="../../contents/img/typewriter.png" width="60px" height="auto" />
+                                        </div>   
+                                        <div  href="{{item.href}}" class="icon" ng-show="item.Module=='cbtResult'">
+                                           <a href="https://sbtet.telangana.gov.in/index.html#!/Twsh/OnlineApplication"> <img src="../../contents/img/typewriter.png" width="60px" height="auto" /></a>
+                                        </div>                                      
+                                        
+                                        <h3 ng-if="item.Module=='cbtResult'">
+                                            <a href="https://ss.sbtet.telangana.gov.in/index.html#!/Twsh/OnlineApplication" style="color: #fff!important;font-size:20px!important">{{item.SysModName}}</a></h3>
+                                        <h3 ng-if="item.Module!='cbtResult'"><a href="#" ui-sref=".{{item.Module}}" style="color: #fff!important;font-size:20px!important">{{item.SysModName}}</a></h3>
+                                        <div  class="icon1">
+                                            <img src="../../contents/img/transprent.png" width="150" height="auto" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+    
+                    </div>
+                </div>
+            </section>
+        </ui-view>
+    </div>
+   
+    <script>
+     $(window).load(function() {
+        var str = $("h3")[1].innerHTML;
+        str = str.replace('!', '<br/>');
+        $("h3")[1].innerHTML  =str;
+     });
+    </script>

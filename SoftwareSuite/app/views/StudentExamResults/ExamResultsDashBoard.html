@@ -1,0 +1,44 @@
+﻿<style>
+        .bck_btn{
+        margin-top:20px!important;
+        }
+        </style>
+    <div ng-controller="ExamResultsDashBoardController">
+        <ui-view>
+            <section class="content">
+                    <div class="container">
+                            <div class="col-md-12">
+                               <a href="#/Dashboard" class="backA"> <button class="btn bck_btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>  Back</button></a>
+                            </div>
+                        </div>
+                <div class="container dashboardContent">
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row widgets-container">
+                        <div class="col-lg-3 col-xs-6" ng-repeat="item in SubmodulesList">
+
+
+                            <a href="#" class="grow" ui-sref=".{{item.Module}}">
+                                <!--ng-click="OpenExamModule(item)">-->
+                                <div class="{{item.ModuleImageClass}}">
+                                    <div class="inner">
+                                        <div class="icon" ng-show="item.Module=='TypingAndShorthand'">
+                                            <img src="../../contents/img/typing.png" width="90" height="auto" />
+                                        </div>
+                                        <div class="icon" ng-show="item.Module=='StudentResult'">
+                                            <img src="../../contents/img/results.png" width="90" height="auto" />
+                                        </div>
+
+                                        <h2>{{item.SysModName}}</h2>
+                                        <div class="icon1">
+                                            <img src="../../contents/img/transprent.png" width="150" height="auto" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </ui-view>
+</div>
